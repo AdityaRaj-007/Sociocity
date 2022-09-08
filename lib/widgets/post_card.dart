@@ -96,7 +96,7 @@ class _PostCardState extends State<PostCard> {
                       child: const Icon(
                         Icons.favorite,
                         color: Colors.white,
-                        size: 120.0,),
+                        size: 140.0,),
                       isAnimating: isLikeAnimating,
                     duration: const Duration(
                       milliseconds: 400,
