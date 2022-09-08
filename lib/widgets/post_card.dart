@@ -89,20 +89,24 @@ class _PostCardState extends State<PostCard> {
                       widget.snap['postUrl'],
                       fit: BoxFit.cover,),
                 ),
-                LikeAnimation(
-                    child: const Icon(
-                      Icons.favorite,
-                      color: Colors.white,
-                      size: 100.0,),
-                    isAnimating: isLikeAnimating,
-                  duration: const Duration(
-                    milliseconds: 400,
+                AnimatedOpacity(
+                  duration: const Duration(milliseconds: 200),
+                  opacity: isLikeAnimating ? 1 : 0,
+                  child: LikeAnimation(
+                      child: const Icon(
+                        Icons.favorite,
+                        color: Colors.white,
+                        size: 120.0,),
+                      isAnimating: isLikeAnimating,
+                    duration: const Duration(
+                      milliseconds: 400,
+                    ),
+                    onEnd: () {
+                        setState((){
+                          isLikeAnimating = false;
+                        });
+                    },
                   ),
-                  onEnd: () {
-                      setState((){
-                        isLikeAnimating = true;
-                      });
-                  },
                 ),
               ],
             ),
